@@ -1,10 +1,14 @@
 import React from 'react'
-import { Header } from '../Header'
+import { Header, HeaderProps } from '../Header'
 
-export default function Screen() {
+interface ScreenProps {
+  headerOptions?: HeaderProps;
+}
+
+export default function Screen({ headerOptions}: ScreenProps) {
   return (
     <>
-    <Header />
+      <Header {...headerOptions} />
     </>
   )
 }

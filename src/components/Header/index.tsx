@@ -1,17 +1,23 @@
 import React from 'react'
 import { Flex, HeaderWrapper, Middle, Title } from './styled'
 
-export function Header() {
+export interface HeaderProps {
+  left?: React.ReactNode;
+  right?: React.ReactNode;
+  title?: React.ReactNode;
+}
+
+export function Header({ left, right, title }: HeaderProps) {
   return (
     <HeaderWrapper>
-      <Flex style={{left: 0}}>
-        left
+      <Flex style={{ left: 10 }}>
+        {left}
       </Flex>
       <Middle>
-        <Title>Home</Title>
+        {typeof title === "string" ? <Title>{title}</Title> : title}
       </Middle>
-      <Flex style={{right: 0}}>
-        right
+      <Flex style={{ right: 10 }}>
+        {right}
       </Flex>
     </HeaderWrapper>
   )

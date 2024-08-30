@@ -1,7 +1,7 @@
 import React from 'react'
 import { ButtonWrapper } from './styled'
 
-import { ButtonProps as BP, Spin } from 'antd';
+import { ButtonProps as BP } from 'antd';
 
 interface ButtonProps extends BP {
   rounded?: boolean;
