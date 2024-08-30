@@ -1,5 +1,53 @@
+@font-face {
+    font-family: "light";
+    src: url("../assets/fonts/Inter-Light.ttf");
+}
+
+@font-face {
+    font-family: "regular";
+    src: url("../assets/fonts/Inter-Regular.ttf");
+}
+
+@font-face {
+    font-family: "medium";
+    src: url("../assets/fonts/Inter-Medium.ttf");
+}
+
+
+@font-face {
+    font-family: "bold";
+    src: url("../assets/fonts/Inter-Bold.ttf");
+}
+
+@font-face {
+    font-family: "semi-bold";
+    src: url("../assets/fonts/Inter-SemiBold.ttf");
+}
+
+@font-face {
+    font-family: "extreme-bold";
+    src: url("../assets/fonts/Inter-ExtraBold.ttf");
+}
+
+:root {
+    --color: white;
+    --secondaryColor: rgb(161, 161, 161);
+    --dark600: #1b1e22;
+    --dark500: #212529;
+    --dark400: #343a40;
+    --dark300: #30353a;
+
+    --p1: 24px;
+    --p2: 16px;
+    --p3: 14px;
+    --p4: 12px;
+    --p5: 10px;
+}
+
 body {
-    // background: rgb(44, 44, 44);
-    // color: white;
+    background: var(--dark600);
+    color: var(--color);
     margin: 0;
+    font-family: regular;
+    font-size: var(--p2);
 }
