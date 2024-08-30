@@ -1,7 +1,9 @@
 import React from 'react'
+import { HeaderWrapper } from './styled'
 
-export default function Header() {
+export function Header() {
   return (
-    <div>Header</div>
+    <HeaderWrapper>
+    </HeaderWrapper>
   )
 }
