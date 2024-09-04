@@ -26,8 +26,6 @@ export function DataResponseView({ data, error, isLoading, isRefetching, customL
     const hasNoData = (Array.isArray(data) ? data.length === 0 : !data);
     const shallowLoading = false;
 
-    console.log(data)
-
     if (((!isLoading && !error)) && !hasNoData) return (
         <Wrapper>
             <Shimmer.SmoothRender style={shallowLoading ? { opacity: 0.3, pointerEvents: 'none', userSelect: 'none' } : undefined}>{content}</Shimmer.SmoothRender>

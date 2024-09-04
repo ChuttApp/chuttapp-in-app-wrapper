@@ -13,9 +13,11 @@ export interface useTableQueryOptions {
     enabled?: boolean;
     /** Default is 'data' => response['data'] */
     dataKey?: string;
+    totalKey?: string;
+    totalRenderedData?: number;
 }
 
-export function useQuery<T = any>({ query, dataKey = "data" as const, enabled, queryId, parameters }: useTableQueryOptions) {
+export function useQuery<T = any>({ query, dataKey = "data", totalKey = "total", enabled, totalRenderedData, queryId, parameters }: useTableQueryOptions) {
     const LIMIT = 10;
     const [page, setPage] = useState(0);
     const parsedParameters = useMemo(() => ({ ...(parameters || {}), ...({limit: LIMIT, from: page, skip: page}) }), [page, parameters]);
@@ -34,7 +36,7 @@ export function useQuery<T = any>({ query, dataKey = "data" as const, enabled, q
         }
     );
 
-    const { total } = responseData || {};
+    const TOTAL = (responseData as any)?.[totalKey] || 0;
 
     const loadMore = () => {
         setPage(old => old + LIMIT)
@@ -45,7 +47,8 @@ export function useQuery<T = any>({ query, dataKey = "data" as const, enabled, q
         isLoading,
         isRefetching,
         error: error as any,
-        total: total || 0,
+        total: TOTAL,
+        hasNextPage: totalRenderedData !== TOTAL,
         refetch,
         loadMore,
     }
