@@ -1,7 +1,6 @@
 import React from 'react'
 import { DataResponseView } from '../DataResponseView';
-import { DataListContent } from './styled';
-import { useAppStyles } from '../../utils';
+import { Scrollable } from './Scrollable';
 
 interface DataListProps<T = unknown> {
     data: T[];
@@ -14,15 +13,9 @@ interface DataListProps<T = unknown> {
 }
 
 export function DataList<T = any>({ data, error, isLoading, isRefetching, onRefetch, render }: DataListProps<T>) {
-    const {safeArea} = useAppStyles()
-    const Content = (
-        <div style={{ overflow: 'auto' }}>
-            {data.map((item, index) => render({ item, index }))}
-        </div>
-    )
     return (
         <DataResponseView
-            content={<DataListContent $top={safeArea?.top || 0} $bottom={safeArea?.bottom || 0}>{Content}</DataListContent>}
+            content={<Scrollable data={data} render={render} />}
             data={data}
             error={error}
             isLoading={isLoading!}
