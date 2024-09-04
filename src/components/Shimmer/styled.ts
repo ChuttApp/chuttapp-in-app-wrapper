@@ -77,7 +77,7 @@ export const SmoothRender = styled.div`
 
 export const SmoothTransition= styled.div`
   width: 100%;
-  animation: comein ease 0.3s;
+  animation: comein ease 0.4s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   @keyframes comein {
