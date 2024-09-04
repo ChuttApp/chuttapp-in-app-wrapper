@@ -10,5 +10,6 @@ export interface ButtonProps {
     icon?: React.ReactNode;
     size?: number;
     children?: any;
+    highlighted?: boolean;
     onClick?: () => void;
 }

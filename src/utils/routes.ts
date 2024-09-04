@@ -6,11 +6,8 @@ export const accountRoutes = {
     accountScreen: '/account-screen',
 }
 
-export const tabsRoute = {
-    home: '/'
-}
-
 export const shoesRoutes = {
+    home: '/',
     shoesScreen: '/shoes',
-    shoeDetailsScreen: '/shoes/details'
+    shoeDetailsScreen: '/shoe/details'
 }
