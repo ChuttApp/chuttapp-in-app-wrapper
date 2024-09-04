@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 export const HeaderWrapper = styled.div<{$top: number}>`
-    height: ${({$top}) => `calc(var(--headerHeight) + ${$top}px)`};
+    height: var(--headerHeight);
     background: var(--dark500);
     width: 100%;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    ${({$top}) => `padding-top: ${$top}px`};
 `;
 
 export const Middle = styled.div`

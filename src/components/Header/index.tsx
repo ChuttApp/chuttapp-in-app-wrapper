@@ -16,7 +16,7 @@ export function Header({ left, right, showBackButton, title }: HeaderProps) {
   const { safeArea } = useAppStyles();
   
   return (
-    <HeaderWrapper $top={safeArea.top || 0}>
+    <HeaderWrapper $top={safeArea?.top || 0}>
       <Flex style={{ left: 10 }}>
         {showBackButton && <IconButton onClick={goBack} highlighted icon={<IconBack size={24} />} />}
         {left}
