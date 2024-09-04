@@ -11,7 +11,7 @@ export function ShoesScreen() {
     query: 'https://dummyjson.com/posts',
     queryId: 'tests',
     dataKey: "posts",
-    // totalRenderedData: shoes.length,
+    totalRenderedData: shoes.length,
   })
 
   useEffect(() => {
