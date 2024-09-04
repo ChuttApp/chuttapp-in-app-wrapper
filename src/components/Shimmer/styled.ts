@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { TransitionType } from '.';
 
 interface ShimmerWrapperProps {
   $animate: boolean;
@@ -75,7 +76,7 @@ export const SmoothRender = styled.div`
   }
 `;
 
-export const SmoothTransition= styled.div`
+export const SmoothTransition= styled.div<{type?: TransitionType}>`
   width: 100%;
   animation: comein ease 0.4s;
   animation-iteration-count: 1;
@@ -83,12 +84,13 @@ export const SmoothTransition= styled.div`
   @keyframes comein {
     0% {
       opacity: 0;
-      transform: translateX(100px);
+      ${({type = "OPACITY"}) => type === "OPACITY" ? 'opacity: 0;' :''}
+      ${({type}) => type === "TRANSLATE_X" ? 'transform: translateX(100px);' :''}
       /* scale: 1.2; */
     }
     100% {
-      opacity: 1;
-      transform: translateX(0px);
+      ${({type = "OPACITY"}) => type === "OPACITY" ? 'opacity: 1;' :''}
+      ${({type}) => type === "TRANSLATE_X" ? 'transform: translateX(0px);' :''}
       /* scale: 1; */
     }
   }

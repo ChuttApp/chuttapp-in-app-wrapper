@@ -14,6 +14,8 @@ interface ShimmerProps {
   radius?: string | number;
 }
 
+export type TransitionType = 'OPACITY' | 'TRANSLATE_X';
+
 export function Shimmer({
   animate = true,
   children,
@@ -45,4 +47,4 @@ export function Shimmer({
 
 Shimmer.Flex = Flex;
 Shimmer.SmoothRender = SmoothRender;
-Shimmer.SmoothTransition = SmoothTransition;
+Shimmer.SmoothTransition = ({type, children}: {type?: TransitionType; children: any}) => <SmoothTransition children={children} type={type} />;
