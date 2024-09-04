@@ -12,7 +12,6 @@ export function ShoesScreen() {
     dataKey: "posts",
   })
 
-
   const goToShowDetails = () => {
     navigate(shoesRoutes.shoeDetailsScreen)
   }
