@@ -11,4 +11,5 @@ export const TabBarWrapper = styled.div<{ $bottom: number }>`
 export const Content = styled.div`
     background: var(--dark400);
     width: 100%;
+    height: 50px;
 `;
