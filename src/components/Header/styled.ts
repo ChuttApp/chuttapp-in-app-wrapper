@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const HeaderWrapper = styled.div`
-    height: 60px;
+    height: var(--headerHeight);
     background: var(--dark500);
     width: 100%;
     position: relative;

@@ -5,7 +5,7 @@ import { useNav } from '../../utils'
 import { shoesRoutes } from '../../utils/routes';
 
 export function ShoesScreen() {
-  const {navigate} = useNav();
+  const { navigate } = useNav();
 
   return (
     <Screen
@@ -13,8 +13,8 @@ export function ShoesScreen() {
         title: "Shoes",
       }}
     >
-      <div style={{margin: 40}}>
-      <Button onClick={() => navigate(shoesRoutes.shoeDetailsScreen)}>Shoe</Button>
+      <div style={{ margin: 40 }}>
+        <Button onClick={() => navigate(shoesRoutes.shoeDetailsScreen)}>Shoe</Button>
       </div>
     </Screen>
   )
