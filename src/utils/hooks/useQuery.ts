@@ -13,6 +13,7 @@ export interface useTableQueryOptions {
     enabled?: boolean;
     /** Default is 'data' => response['data'] */
     dataKey?: string;
+    /** Default is 'total' => response['total'] */
     totalKey?: string;
 }
 
