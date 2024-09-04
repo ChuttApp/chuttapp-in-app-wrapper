@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react'
 import { Content, TabBarWrapper, TabItemLabel, TabItemWrapper } from './styled'
-import { useAppStyles } from '../../utils'
+import { useAppStyles, useNav } from '../../utils'
 
 interface TabItemProps {
     name: string;
@@ -9,6 +9,7 @@ interface TabItemProps {
     iconSize?: number;
     color?: string;
     activeColor?: string;
+    to?: string;
     icon?: (props: { size: number; color: string; active?: boolean }) => React.ReactNode;
     onPress?: () => void;
 }
@@ -21,11 +22,16 @@ interface TabBarProps {
 export function TabBar({ tabs, iconSize: tbIconSize }: TabBarProps) {
     const { safeArea } = useAppStyles();
     const [activeTab, setActiveTab] = useState<string>(tabs[0].name);
+    const { navigate } = useNav();
+
+    const goToRoute = (route: string) => {
+        navigate(route);
+    }
 
     return (
         <TabBarWrapper $bottom={safeArea?.bottom || 0}>
-            <Content style={tabs.length < 3 ? {justifyContent: "space-around"} : undefined}>
-                {tabs.map(({ icon, name, iconSize, label }, index) => (
+            <Content style={tabs.length < 3 ? { justifyContent: "space-around" } : undefined}>
+                {tabs.map(({ icon, name, iconSize, to, label, onPress }, index) => (
                     <TabItem
                         name={name}
                         key={index}
@@ -33,7 +39,11 @@ export function TabBar({ tabs, iconSize: tbIconSize }: TabBarProps) {
                         isActive={activeTab === name}
                         label={label}
                         iconSize={iconSize || tbIconSize}
-                        onPress={() => setActiveTab(name)}
+                        onPress={() => {
+                            if (to) goToRoute(to);
+                            else onPress?.();
+                            setActiveTab(name)
+                        }}
                     />
                 ))}
             </Content>
@@ -43,13 +53,13 @@ export function TabBar({ tabs, iconSize: tbIconSize }: TabBarProps) {
 
 function TabItem({ isActive, activeColor = "var(--blue)", icon, iconSize = 30, color, label, onPress, }: TabItemProps) {
     const COLOR = useMemo(() => {
-        if(isActive) return activeColor;
+        if (isActive) return activeColor;
         return color || 'var(--color)';
-    }, [activeColor, color, isActive])
+    }, [activeColor, color, isActive]);
     return (
         <TabItemWrapper onClick={onPress}>
             {icon?.({ size: iconSize, color: COLOR, active: isActive })}
-            <TabItemLabel style={{color: COLOR}}>{label}</TabItemLabel>
+            <TabItemLabel style={{ color: COLOR }}>{label}</TabItemLabel>
         </TabItemWrapper>
     )
 }

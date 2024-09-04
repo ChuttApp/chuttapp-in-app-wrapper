@@ -1,9 +1,9 @@
 export const authRoutes = {
-    signInScreen: '/sign-in-screen',
+    signInScreen: '/sign-in',
 }
 
 export const accountRoutes = {
-    accountScreen: '/account-screen',
+    accountScreen: '/account',
 }
 
 export const shoesRoutes = {

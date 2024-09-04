@@ -3,6 +3,7 @@ import { AppNavigation } from './AppNavigation'
 import { TabBar } from '../components/TabBar'
 import styled from 'styled-components'
 import { IconAccounts, IconHome } from '../components/icons';
+import { accountRoutes, shoesRoutes } from '../utils/routes';
 
 const Main = styled.div`
   position: fixed;
@@ -21,22 +22,14 @@ export function MainApp() {
         tabs={[
           {
             name: 'Home',
-            label: "Home",
-            icon: (props) => <IconHome {...props} />,
-          },
-          {
-            name: 'Home',
-            label: "Home",
-            icon: (props) => <IconHome {...props} />,
-          },
-          {
-            name: 'Home',
+            to: shoesRoutes.home,
             label: "Home",
             icon: (props) => <IconHome {...props} />,
           },
           {
             name: 'Account',
             label: "Account",
+            to: accountRoutes.accountScreen,
             icon: (props) => <IconAccounts {...props} />,
           }
         ]}
