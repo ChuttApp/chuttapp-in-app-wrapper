@@ -47,4 +47,4 @@ export function Shimmer({
 
 Shimmer.Flex = Flex;
 Shimmer.SmoothRender = SmoothRender;
-Shimmer.SmoothTransition = ({type, children}: {type?: TransitionType; children: any}) => <SmoothTransition children={children} type={type} />;
+Shimmer.SmoothTransition = SmoothTransition
