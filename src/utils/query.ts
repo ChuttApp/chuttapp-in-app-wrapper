@@ -8,7 +8,8 @@ import {
   QueryClientProvider,
 } from 'react-query';
 
-const routePath = `http://localhost:3000`;
+// const routePath = `http://localhost:3000`;
+const routePath = ``;
 
 export const _get = <ResponseT = any>(
   route: string,
