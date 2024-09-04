@@ -1,10 +1,14 @@
 import React from 'react'
-import { TabBarWrapper } from './styled'
+import { Content, TabBarWrapper } from './styled'
+import { useAppStyles } from '../../utils'
 
 export function TabBar() {
+    const { safeArea } = useAppStyles()
     return (
-        <TabBarWrapper>
-            tabs
+        <TabBarWrapper $bottom={safeArea?.bottom || 0}>
+            <Content>
+                Tabs
+            </Content>
         </TabBarWrapper>
     )
 }
