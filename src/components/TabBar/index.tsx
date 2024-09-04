@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { Content, TabBarWrapper, TabItemLabel, TabItemWrapper } from './styled'
 import { useAppStyles } from '../../utils'
 
@@ -6,9 +6,10 @@ interface TabItemProps {
     name: string;
     isActive?: boolean;
     label?: React.ReactNode;
-    icon?: (props: { size: number; color: string; active?: boolean }) => React.ReactNode;
     iconSize?: number;
     color?: string;
+    activeColor?: string;
+    icon?: (props: { size: number; color: string; active?: boolean }) => React.ReactNode;
     onPress?: () => void;
 }
 
@@ -23,7 +24,7 @@ export function TabBar({ tabs, iconSize: tbIconSize }: TabBarProps) {
 
     return (
         <TabBarWrapper $bottom={safeArea?.bottom || 0}>
-            <Content>
+            <Content style={tabs.length < 3 ? {justifyContent: "space-around"} : undefined}>
                 {tabs.map(({ icon, name, iconSize, label }, index) => (
                     <TabItem
                         name={name}
@@ -40,11 +41,15 @@ export function TabBar({ tabs, iconSize: tbIconSize }: TabBarProps) {
     )
 }
 
-function TabItem({ isActive, icon, iconSize = 30, color, label, onPress, }: TabItemProps) {
+function TabItem({ isActive, activeColor = "var(--blue)", icon, iconSize = 30, color, label, onPress, }: TabItemProps) {
+    const COLOR = useMemo(() => {
+        if(isActive) return activeColor;
+        return color || 'var(--color)';
+    }, [activeColor, color, isActive])
     return (
         <TabItemWrapper onClick={onPress}>
-            {icon?.({ size: iconSize, color: color || 'var(--color)', active: isActive })}
-            <TabItemLabel>{label}</TabItemLabel>
+            {icon?.({ size: iconSize, color: COLOR, active: isActive })}
+            <TabItemLabel style={{color: COLOR}}>{label}</TabItemLabel>
         </TabItemWrapper>
     )
 }

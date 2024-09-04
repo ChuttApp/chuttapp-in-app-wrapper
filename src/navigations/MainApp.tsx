@@ -30,6 +30,11 @@ export function MainApp() {
             icon: (props) => <IconHome {...props} />,
           },
           {
+            name: 'Home',
+            label: "Home",
+            icon: (props) => <IconHome {...props} />,
+          },
+          {
             name: 'Account',
             label: "Account",
             icon: (props) => <IconAccounts {...props} />,
