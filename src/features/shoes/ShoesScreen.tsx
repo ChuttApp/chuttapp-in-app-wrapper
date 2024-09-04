@@ -1,11 +1,15 @@
 import React from 'react'
 import Screen from '../../components/Screen'
-import { Button } from '../../components/button'
 import { useNav } from '../../utils'
 import { shoesRoutes } from '../../utils/routes';
+import { DataList } from '../../components/DataList';
 
 export function ShoesScreen() {
   const { navigate } = useNav();
+
+  const goToShowDetails = () => {
+    navigate(shoesRoutes.shoeDetailsScreen)
+  }
 
   return (
     <Screen
@@ -13,9 +17,10 @@ export function ShoesScreen() {
         title: "Shoes",
       }}
     >
-      <div style={{ margin: 40 }}>
-        <Button onClick={() => navigate(shoesRoutes.shoeDetailsScreen)}>Shoe</Button>
-      </div>
+      <DataList
+        data={['rice', 'stew']}
+        render={({ item, index }) => <div onClick={goToShowDetails} key={index}>{item}</div>}
+      />
     </Screen>
   )
 }
