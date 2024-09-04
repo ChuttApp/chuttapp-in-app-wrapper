@@ -2,7 +2,7 @@ import React from 'react'
 import { Flex, HeaderWrapper, Middle, Title } from './styled'
 import { IconButton } from '../button';
 import { IconBack } from '../icons';
-import { useNav } from '../../utils';
+import { useAppStyles, useNav } from '../../utils';
 
 export interface HeaderProps {
   left?: React.ReactNode;
@@ -12,9 +12,11 @@ export interface HeaderProps {
 }
 
 export function Header({ left, right, showBackButton, title }: HeaderProps) {
-  const { goBack } = useNav()
+  const { goBack } = useNav();
+  const { safeArea } = useAppStyles();
+  
   return (
-    <HeaderWrapper>
+    <HeaderWrapper $top={safeArea.top || 0}>
       <Flex style={{ left: 10 }}>
         {showBackButton && <IconButton onClick={goBack} highlighted icon={<IconBack size={24} />} />}
         {left}

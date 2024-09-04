@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export const HeaderWrapper = styled.div`
-    height: var(--headerHeight);
+export const HeaderWrapper = styled.div<{$top: number}>`
+    height: ${({$top}) => `calc(var(--headerHeight) + ${$top}px)`};
     background: var(--dark500);
     width: 100%;
     position: relative;
