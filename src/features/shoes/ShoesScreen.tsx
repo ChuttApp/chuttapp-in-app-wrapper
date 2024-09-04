@@ -9,6 +9,7 @@ export function ShoesScreen() {
   const {data, error, isLoading, isRefetching, loadMore, refetch} = useQuery({
     query: 'https://dummyjson.com/posts',
     queryId: 'tests',
+    dataKey: "posts",
   })
 
   const goToShowDetails = () => {

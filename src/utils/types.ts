@@ -4,6 +4,6 @@ export interface RequestParams {
 }
 
 export interface DataResponse<T = any> {
-   data: T[];
-   totalCount: number;
+    data: T[];
+    total: number;
 }
