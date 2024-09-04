@@ -1,12 +1,16 @@
 export const authRoutes = {
-    signInScreen: 'sign-in-screen',
+    signInScreen: '/sign-in-screen',
 }
 
 export const accountRoutes = {
-    accountScreen: 'account-screen',
+    accountScreen: '/account-screen',
+}
+
+export const tabsRoute = {
+    home: '/'
 }
 
 export const shoesRoutes = {
-    shoesScreen: 'shoes',
-    shoeDetailsScreen: 'shoes/details'
+    shoesScreen: '/shoes',
+    shoeDetailsScreen: '/shoes/details'
 }

@@ -3,7 +3,7 @@ import { ButtonWrapper, IconButtonWrapper } from './styled'
 
 import { ButtonProps } from './types';
 
-export function Button({ disabled, isLoading, icon, variant = "secondary", children, ...props }: ButtonProps) {
+export function Button({ disabled, isLoading, icon, variant = "secondary", children,  ...props }: ButtonProps) {
   if (isLoading) disabled = true;
   return (
     <ButtonWrapper variant={variant} {...props}>
