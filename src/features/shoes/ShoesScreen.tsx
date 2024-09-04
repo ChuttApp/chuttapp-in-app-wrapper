@@ -1,8 +1,7 @@
 import React from 'react'
-import Screen from '../../components/Screen'
 import { useNav, useQuery } from '../../utils'
 import { shoesRoutes } from '../../utils/routes';
-import { DataList } from '../../components/DataList';
+import { DataList, Screen } from '@chuttapp/in-app-ui'
 
 export function ShoesScreen() {
   const { navigate } = useNav();

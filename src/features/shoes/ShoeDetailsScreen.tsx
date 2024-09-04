@@ -1,5 +1,5 @@
+import { Screen } from '@chuttapp/in-app-ui'
 import React from 'react'
-import Screen from '../../components/Screen'
 
 export function ShoeDetailsScreen() {
   return (

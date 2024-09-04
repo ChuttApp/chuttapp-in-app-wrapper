@@ -1,9 +1,9 @@
 import React from 'react'
 import { AppNavigation } from './AppNavigation'
-import { TabBar } from '../components/TabBar'
 import styled from 'styled-components'
 import { IconAccounts, IconHome } from '../components/icons';
 import { accountRoutes, shoesRoutes } from '../utils/routes';
+import { TabBar } from '@chuttapp/in-app-ui';
 
 const Main = styled.div`
   position: fixed;
