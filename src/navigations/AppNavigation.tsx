@@ -8,6 +8,7 @@ export function AppNavigation() {
   return (
     <Routes>
       <Route path={shoesRoutes.shoesScreen} element={<ShoesScreen />} />
+      <Route path={shoesRoutes.shoeDetailsScreen} element={<ShoesScreen />} />
       <Route path={accountRoutes.accountScreen} element={<AccountScreen />} />
     </Routes>
   )

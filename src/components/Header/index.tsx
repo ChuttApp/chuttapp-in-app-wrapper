@@ -1,16 +1,20 @@
 import React from 'react'
 import { Flex, HeaderWrapper, Middle, Title } from './styled'
+import { IconButton } from '../button';
+import { IconBack } from '../icons';
 
 export interface HeaderProps {
   left?: React.ReactNode;
   right?: React.ReactNode;
   title?: React.ReactNode;
+  showBackButton?: boolean;
 }
 
-export function Header({ left, right, title }: HeaderProps) {
+export function Header({ left, right, showBackButton, title }: HeaderProps) {
   return (
     <HeaderWrapper>
       <Flex style={{ left: 10 }}>
+        {showBackButton && <IconButton icon={<IconBack />} />}
         {left}
       </Flex>
       <Middle>

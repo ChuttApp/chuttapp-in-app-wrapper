@@ -7,5 +7,6 @@ export const accountRoutes = {
 }
 
 export const shoesRoutes = {
-    shoesScreen: 'shoes-screen'
+    shoesScreen: 'shoes',
+    shoeDetailsScreen: 'shoes/details'
 }

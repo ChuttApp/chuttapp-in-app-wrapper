@@ -3,11 +3,11 @@ import { ButtonWrapper, IconButtonWrapper } from './styled'
 
 import { ButtonProps } from './types';
 
-export function Button({ disabled, isLoading, icon, ...props }: ButtonProps) {
+export function Button({ disabled, isLoading, icon, children, ...props }: ButtonProps) {
   if (isLoading) disabled = true;
   return (
     <ButtonWrapper {...props}>
-      {icon}
+      {children || icon}
     </ButtonWrapper>
   )
 }
