@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { DataResponse, RequestParams } from "../types";
 import { _get, useQuery as useQ } from "../query";
 
@@ -14,12 +14,12 @@ export interface useTableQueryOptions {
     /** Default is 'data' => response['data'] */
     dataKey?: string;
     totalKey?: string;
-    totalRenderedData?: number;
 }
 
-export function useQuery<T = any>({ query, dataKey = "data", totalKey = "total", enabled, totalRenderedData, queryId, parameters }: useTableQueryOptions) {
+export function useQuery<T = any>({ query, dataKey = "data", totalKey = "total", enabled, queryId, parameters }: useTableQueryOptions) {
     const LIMIT = 10;
     const [page, setPage] = useState(0);
+    const [overallData, setOverallData] = useState<T[]>([]);
     const parsedParameters = useMemo(() => ({ ...(parameters || {}), ...({limit: LIMIT, from: page, skip: page}) }), [page, parameters]);
 
     const parsedId = useMemo(() => {
@@ -37,18 +37,25 @@ export function useQuery<T = any>({ query, dataKey = "data", totalKey = "total",
     );
 
     const TOTAL = (responseData as any)?.[totalKey] || 0;
+    const DATA = useMemo(() => (responseData as any)?.[dataKey] || [] as T[], [dataKey, responseData]);
 
     const loadMore = () => {
         setPage(old => old + LIMIT)
     }
 
+    useEffect(() => {
+        setOverallData(old => [...old, ...DATA])
+    
+    }, [DATA])
+
     return {
-        data: (responseData as any)?.[dataKey] || [] as T[],
+        data: DATA,
+        overallData,
         isLoading,
         isRefetching,
         error: error as any,
         total: TOTAL,
-        hasNextPage: totalRenderedData !== TOTAL,
+        hasNextPage: overallData.length !== TOTAL,
         refetch,
         loadMore,
     }
