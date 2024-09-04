@@ -1,22 +1,19 @@
 import React from 'react'
-import { ButtonWrapper } from './styled'
+import { ButtonWrapper, IconButtonWrapper } from './styled'
 
-import { ButtonProps as BP } from 'antd';
+import { ButtonProps } from './types';
 
-interface ButtonProps extends BP {
-  rounded?: boolean;
-  isLoading?: boolean;
-}
-
-export function Button({ disabled, isLoading, ...props }: ButtonProps) {
+export function Button({ disabled, isLoading, icon, ...props }: ButtonProps) {
   if (isLoading) disabled = true;
   return (
-    <ButtonWrapper {...props} />
+    <ButtonWrapper {...props}>
+      {icon}
+    </ButtonWrapper>
   )
 }
 
 export function IconButton({ rounded, className, ...props }: ButtonProps) {
   return (
-    <ButtonWrapper {...props} shape="circle" />
+    <IconButtonWrapper size={35} {...props} shape="circle" />
   )
 }
