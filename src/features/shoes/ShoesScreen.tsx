@@ -18,7 +18,7 @@ export function ShoesScreen() {
       }}
     >
       <DataList
-        data={['rice', 'stew']}
+        data={[]}
         render={({ item, index }) => <div onClick={goToShowDetails} key={index}>{item}</div>}
       />
     </Screen>

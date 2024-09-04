@@ -16,9 +16,9 @@ export const LoggerTitle = styled.div`
 `;
 
 export const LoggerSubtitle = styled.div`
-    font-size: var(--fontRegular);
-    color: var(--gray100);
-    max-width: 400px;
+    font-size: var(--p3);
+    color: var(--secondaryColor);
+    max-width: 300px;
     text-align: center;
 `;
 
