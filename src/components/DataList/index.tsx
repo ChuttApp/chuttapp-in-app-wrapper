@@ -1,5 +1,7 @@
 import React from 'react'
 import { DataResponseView } from '../DataResponseView';
+import { DataListContent } from './styled';
+import { useAppStyles } from '../../utils';
 
 interface DataListProps<T = unknown> {
     data: T[];
@@ -11,17 +13,21 @@ interface DataListProps<T = unknown> {
     onRefetch?: () => void;
 }
 
-export function DataList<T = any>({ data, error, isLoading, isRefetching, onRefetch,  render }: DataListProps<T>) {
+export function DataList<T = any>({ data, error, isLoading, isRefetching, onRefetch, render }: DataListProps<T>) {
+    const {safeArea} = useAppStyles()
+    const Content = (
+        <div style={{ overflow: 'auto' }}>
+            {data.map((item, index) => render({ item, index }))}
+        </div>
+    )
     return (
-        <>
-            <DataResponseView
-                content={data.map((item, index) => render({ item, index }))}
-                data={data}
-                error={error}
-                isLoading={isLoading!}
-                isRefetching={isRefetching}
-                onRetry={onRefetch}
-            />
-        </>
+        <DataResponseView
+            content={<DataListContent $top={safeArea?.top || 0} $bottom={safeArea?.bottom || 0}>{Content}</DataListContent>}
+            data={data}
+            error={error}
+            isLoading={isLoading!}
+            isRefetching={isRefetching}
+            onRetry={onRefetch}
+        />
     )
 }

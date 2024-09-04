@@ -18,8 +18,8 @@ export function ShoesScreen() {
       }}
     >
       <DataList
-        data={[]}
-        render={({ item, index }) => <div onClick={goToShowDetails} key={index}>{item}</div>}
+        data={["hgjh", "hgjsdh", "hgjh", "hgjsdh","hgjh", "hgjsdh", "hgjh", "hgjsdh","hgjh", "hgjsdh", "hgjh", "hgjsdh","hgjh", "hgjsdh", "hgjh", "hgjsdh","hgjh", "hgjsdh", "hgjh", "LASt",]}
+        render={({ item, index }) => <div style={{height: 100, borderBottom: '1px solid gray',}} onClick={goToShowDetails} key={index}>{item}</div>}
       />
     </Screen>
   )

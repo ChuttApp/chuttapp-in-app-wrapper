@@ -28,15 +28,13 @@ export function DataResponseView({ data, error, isLoading, isRefetching, customL
 
     if (((!isLoading && !error)) && !hasNoData) return (
         <Wrapper>
-            <div style={shallowLoading ? {opacity: 0.3, pointerEvents: 'none', userSelect: 'none'} : undefined}>
-                <Shimmer.SmoothRender>{content}</Shimmer.SmoothRender>
-            </div>
+            <Shimmer.SmoothRender style={shallowLoading ? { opacity: 0.3, pointerEvents: 'none', userSelect: 'none' } : undefined}>{content}</Shimmer.SmoothRender>
             {shallowLoading && (
                 <LoadingBG>
-                <div style={{ padding: 100, display: 'flex', justifyContent: 'center' }}>
-                    <Loading size='default' />
-                </div>
-            </LoadingBG>
+                    <div style={{ padding: 100, display: 'flex', justifyContent: 'center' }}>
+                        <Loading size='default' />
+                    </div>
+                </LoadingBG>
             )}
         </Wrapper>
     )
@@ -52,12 +50,12 @@ export function DataResponseView({ data, error, isLoading, isRefetching, customL
                     {...emptyLoggerOptions}
                 >
                     {
-                (emptyLoggerOptions?.onPress || onRetry) && (
-                    <Logger.Actions>
-                        <Button onClick={emptyLoggerOptions?.onPress || onRetry}>{emptyLoggerOptions?.buttonText ?? (!!onRetry && 'Refresh')}</Button>
-                    </Logger.Actions>
-                )
-            }
+                        (emptyLoggerOptions?.onPress || onRetry) && (
+                            <Logger.Actions>
+                                <Button onClick={emptyLoggerOptions?.onPress || onRetry}>{emptyLoggerOptions?.buttonText ?? (!!onRetry && 'Refresh')}</Button>
+                            </Logger.Actions>
+                        )
+                    }
                 </Logger>
             )}
             {error && !isLoading && !isRefetching && (
