@@ -9,7 +9,9 @@ export function ShoesScreen() {
         title: "Shoes",
       }}
     >
+      <div style={{margin: 40}}>
       <Button>Shoe</Button>
+      </div>
     </Screen>
   )
 }

@@ -6,7 +6,19 @@ export const ButtonWrapper = styled.div<ButtonProps>`
     border: 0;
     background-position: center;
     transition: all 0.8s;
-    background-color: var(--dark400);
+    background-color: ${({variant}) => {
+        switch (variant) {
+            case "secondary":
+                return 'var(--dark500)'
+            default:
+                return 'var(--blue)'
+        }
+    }};
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-family: medium;
+    width: fit-content;
+    cursor: pointer;
 
     &:active {
         background-color: var(--dark500);
