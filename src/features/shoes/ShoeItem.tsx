@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { shoesRoutes } from '../../utils/routes';
-import { Button, useNav, usePay, } from '@chuttapp/in-app-react';
+import { Button, useNav, usePay } from '@chuttapp/in-app-react';
 
 export function ShoeItem({ item }: { item: any }) {
     const { navigate } = useNav();
