@@ -12,7 +12,7 @@ export function ShoeItem({ item }: { item: any }) {
 
     const onPay = () => {
         pay({
-            amount: 3.55,
+            amount: 5.55,
             currency: 'GHS'
         })
     }
