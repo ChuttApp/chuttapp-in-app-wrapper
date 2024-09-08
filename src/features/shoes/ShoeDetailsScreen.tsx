@@ -3,7 +3,7 @@ import React from 'react'
 import QRCode from "react-qr-code";
 
 export function ShoeDetailsScreen() {
-  const scandata = useScannerData(InAppService.ScannerActions.OPEN_SCANNER);
+  useScannerData(InAppService.ScannerActions.OPEN_SCANNER);
 
   return (
     <Screen
