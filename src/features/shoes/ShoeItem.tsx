@@ -15,13 +15,6 @@ export function ShoeItem({ item }: { item: any }) {
             amount: 5.55,
             currency: 'GHS'
         })
-
-        // InAppService.onSendMessage({
-        //     action: 'HELLO',
-        //     data: {
-        //         world: "World"
-        //     }
-        // })
     }
 
     return (
@@ -29,7 +22,7 @@ export function ShoeItem({ item }: { item: any }) {
             {item.title}
             <div style={{ display: 'flex', gap: 12 }}>
                 <Button onClick={goToShowDetails}>Details</Button>
-                <Button onClick={onPay}>Pay</Button>
+                {/* <Button onClick={onPay}>{JSON.stringify(responses)}</Button> */}
             </div>
         </div>
     )
