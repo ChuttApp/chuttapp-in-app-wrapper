@@ -1231,13 +1231,15 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@chuttapp/in-app-react@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@chuttapp/in-app-react/-/in-app-react-1.0.0.tgz#a08815d5a9fcb6e9cf2436b7bfbdf03eca3e3585"
-  integrity sha512-QxEq29Inb2t0B+czxtdmZQPUYVAhccOewnolNdldk9bySn2xcKeoflxidnaLAb+NWI3n2gzsZraCUHM58IjCmw==
+"@chuttapp/in-app-react@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@chuttapp/in-app-react/-/in-app-react-1.2.0.tgz#36a6d6b08bce14b0e712aae0c3017577b5544a69"
+  integrity sha512-Av5PsO71HQXZqz8zOznywjdwDO/6v+cRURWxAfM6OVZVD0p1545fWk9QCZVgAH/Eioo8bJoGvQINiFW5uHoEJQ==
   dependencies:
     "@chuttapp/in-app" "^1.2.0"
     axios "^1.7.7"
+    eventemitter3 "^5.0.1"
+    lodash "^4.17.21"
     lottie-react "^2.4.0"
     react-infinite-scroll-hook "^5.0.1"
     react-query "^3.39.3"
