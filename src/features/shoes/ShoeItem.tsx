@@ -1,6 +1,6 @@
 import React from 'react'
 import { shoesRoutes } from '../../utils/routes';
-import { Button, useNav, usePay } from '@chuttapp/in-app-react';
+import { Button, useNav, usePay, } from '@chuttapp/in-app-react';
 
 export function ShoeItem({ item }: { item: any }) {
     const { navigate } = useNav();
@@ -15,6 +15,13 @@ export function ShoeItem({ item }: { item: any }) {
             amount: 5.55,
             currency: 'GHS'
         })
+
+        // InAppService.onSendMessage({
+        //     action: 'HELLO',
+        //     data: {
+        //         world: "World"
+        //     }
+        // })
     }
 
     return (
