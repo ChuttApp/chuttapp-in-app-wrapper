@@ -1,5 +1,5 @@
 import React from 'react'
-import { DataList, Screen, useQuery } from '@chuttapp/in-app-react'
+import { DataList, Screen, useInAppResponse, useQuery } from '@chuttapp/in-app-react'
 import { ShoeItem } from './ShoeItem';
 
 export function ShoesScreen() {
@@ -9,12 +9,15 @@ export function ShoesScreen() {
     dataKey: "posts",
   })
 
+  const { responses } = useInAppResponse();
+
   return (
     <Screen
       headerOptions={{
         title: "Shoes",
       }}
     >
+      <div> {responses.length}</div>
       <DataList<{id: string; title: string}>
         data={overallData}
         render={({ item, index }) => <ShoeItem item={item} key={index} />}
