@@ -1,16 +1,13 @@
 import React, { useState } from 'react'
 import { shoesRoutes } from '../../utils/routes';
-import { Button, useNav, usePay,useInAppResponse} from '@chuttapp/in-app-react';
+import { Button, useNav, usePay, } from '@chuttapp/in-app-react';
 
 export function ShoeItem({ item }: { item: any }) {
     const { navigate } = useNav();
     const [resp, setresp] = useState<any>()
     const { pay } = usePay(item.id, (response) => {
         setresp(JSON.stringify(response))
-        alert("Hello")
     });
-    const {responses} = useInAppResponse()
-    console.log(item.id, responses);
 
     const goToShowDetails = () => {
         navigate(shoesRoutes.shoeDetailsScreen)
