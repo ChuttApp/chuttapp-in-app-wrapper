@@ -1,6 +1,6 @@
 import React from 'react';
 import { MainApp } from './navigations/MainApp';
-import { MainWrapper } from '@chuttapp/in-app-ui';
+import { MainWrapper } from '@chuttapp/in-app-react';
 
 function App() {
   return (

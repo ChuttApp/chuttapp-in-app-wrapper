@@ -3,7 +3,7 @@ import { AppNavigation } from './AppNavigation'
 import styled from 'styled-components'
 import { IconAccounts, IconHome } from '../components/icons';
 import { accountRoutes, shoesRoutes } from '../utils/routes';
-import { TabBar } from '@chuttapp/in-app-ui';
+import { TabBar } from '@chuttapp/in-app-react';
 
 const Main = styled.div`
   position: fixed;

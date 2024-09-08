@@ -1,4 +1,4 @@
-import { Screen } from '@chuttapp/in-app-ui'
+import { Screen } from '@chuttapp/in-app-react'
 import React from 'react'
 
 export function AccountScreen() {
